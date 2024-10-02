@@ -18,6 +18,7 @@ import React, { useEffect, useState } from 'react';
 import { CryptoState } from '../CryptoContext';
 import { CoinList } from '../configApi/Api';
 import { createTheme } from '@mui/material';
+import { teal } from '@mui/material/colors';
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -80,7 +81,7 @@ const CoinsTable = () => {
 
   // Function to get the formatted price with currency symbol
   const getFormattedPrice = (price) => {
-    if (currency === 'inr') {
+    if (currency === 'INR') {
       return `₹${formatNumber(price)}`;
     } else {
       return `$${formatNumber(price)}`;
@@ -114,7 +115,7 @@ const CoinsTable = () => {
                       style={{
                         color: "black",
                         fontWeight: "700",
-                        fontFamily: "Montserrat",
+                        fontFamily: "cursive",
                       }}
                       key={head}
                       align={head === "Coin" || head === "Symbol" ? "" : "right"}
@@ -124,9 +125,24 @@ const CoinsTable = () => {
                   ))}
                 </TableRow>
               </TableHead>
-              <TableBody>
+
+
+              <TableBody 
+                sx={{
+                  "& .MuiTableCell-root": {
+                    fontFamily:"sans-serif",
+                    fontWeight: 300,                  },
+                }}
+                >
                 {currentCoins.map((coin) => (
-                  <TableRow key={coin.id}>
+                  <TableRow key={coin.id}
+                    sx={{
+                      "&:hover":{
+                        backgroundColor:"black",
+                        cursor:"pointer",
+                      }
+                    }}
+                  >
                     <TableCell>{coin.name}</TableCell>
                     <TableCell>
                       <img src={coin.image} alt={coin.name} style={{ width: "30px", height: "30px" }} />
@@ -137,6 +153,8 @@ const CoinsTable = () => {
                   </TableRow>
                 ))}
               </TableBody>
+
+              
             </Table>
           )}
         </TableContainer>
