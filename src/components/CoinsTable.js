@@ -19,6 +19,7 @@ import { CryptoState } from '../CryptoContext';
 import { CoinList } from '../configApi/Api';
 import { createTheme } from '@mui/material';
 import { teal } from '@mui/material/colors';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -28,6 +29,7 @@ const CoinsTable = () => {
   const [coinsPerPage] = useState(10);
 
   const { currency } = CryptoState();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -88,6 +90,11 @@ const CoinsTable = () => {
     }
   };
 
+  // Function to navigate to coin's chart page
+  const handleRowClick = (coinId) => {
+    navigate(`/coins/${coinId}`); // Redirect to the coin chart page
+  };
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
@@ -126,21 +133,16 @@ const CoinsTable = () => {
                 </TableRow>
               </TableHead>
 
-
-              <TableBody 
-                sx={{
-                  "& .MuiTableCell-root": {
-                    fontFamily:"sans-serif",
-                    fontWeight: 300,                  },
-                }}
-                >
+              <TableBody>
                 {currentCoins.map((coin) => (
-                  <TableRow key={coin.id}
+                  <TableRow 
+                    key={coin.id}
+                    onClick={() => handleRowClick(coin.id)} // Navigate when row is clicked
                     sx={{
-                      "&:hover":{
-                        backgroundColor:"black",
-                        cursor:"pointer",
-                      }
+                      "&:hover": {
+                        backgroundColor: "black",
+                        cursor: "pointer",
+                      },
                     }}
                   >
                     <TableCell>{coin.name}</TableCell>
@@ -153,8 +155,6 @@ const CoinsTable = () => {
                   </TableRow>
                 ))}
               </TableBody>
-
-              
             </Table>
           )}
         </TableContainer>
