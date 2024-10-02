@@ -9,11 +9,16 @@ const CarouselWrapper = styled('div')({
   height: "50%",
   display: "flex",
   alignItems: "center",
-  overflowX: "auto",  // Enable horizontal scrolling
-  scrollbarWidth: "none", // Hide scrollbar for different browsers
-  "&::-webkit-scrollbar": {
-    display: "none", // Hide scrollbar in WebKit browsers
-  },
+  flexWrap:  "wrap",
+  overflow: "None",
+  justifyContent: "center",
+  gap:"20px",
+  padding: "20px",
+  // overflowX: "auto",  // Enable horizontal scrolling
+  // scrollbarWidth: "none", // Hide scrollbar for different browsers
+  // "&::-webkit-scrollbar": {
+  //   display: "none", // Hide scrollbar in WebKit browsers
+  // },
 });
 
 // Styled for each coin item
@@ -22,6 +27,7 @@ const CoinItem = styled('div')({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
+  width:"120px", //for fixed width of all
   margin: "0 10px",  // Spacing between coins
   padding: "10px",
   borderRadius: "8px",
@@ -29,6 +35,12 @@ const CoinItem = styled('div')({
   transition: "transform 0.3s ease-in-out",
   "&:hover": {
     transform: "scale(1.1)", // Scale up on hover for effect
+  },
+  "@media (max-width: 768px)": {
+    width: "90px", // Adjust width for tablets
+  },
+  "@media (max-width: 480px)": {
+    width: "70px", // Adjust width for mobile devices
   },
 });
 
