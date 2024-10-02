@@ -1,0 +1,16 @@
+/* this is for fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
+
+/* default for app */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* so that there won't be any line or any other decoration for links */
+a {
+  text-decoration: none;
+  color: gold;
+}
