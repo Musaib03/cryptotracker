@@ -4,6 +4,8 @@ A comprehensive cryptocurrency tracking platform built using **React**. This app
 
 ---
 
+Have a look at my deployed site: Crypto Tracker 🚀
+
 ## 🚀 Features
 
 - **Real-time Price Updates**: Track prices of a wide range of cryptocurrencies in real-time.
