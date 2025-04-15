@@ -4,7 +4,7 @@ A comprehensive cryptocurrency tracking platform built using **React**. This app
 
 ---
 
-Have a look at my deployed site: Crypto Tracker 🚀
+Have a look at my deployed site: [Crypto Tracker](https://cryptotracker-mocha.vercel.app) 🚀
 
 ## 🚀 Features
 
