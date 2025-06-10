@@ -7,7 +7,6 @@ const BannerWrapper = styled('div')({
   backgroundImage: "url(./Banner.jpg)",
   backgroundSize: "cover",          // Ensures the image is fully visible
   backgroundPosition: "center",     // Centers the image
-  height: "60vh",                   // 60% of the viewport height
   width: "100%",                    // Full width of the page
 });
 
@@ -57,7 +56,7 @@ const Banner = () => {
         </Tagline>
 
         <Carousel />
-        
+
       </BannerContent>
     </BannerWrapper>
   );
